@@ -1,1 +1,4 @@
-# Proyecto-agrucultura
+# Proyecto-agricultura
+Integrantes:
+Emily gallardo
+joshua santeliz
