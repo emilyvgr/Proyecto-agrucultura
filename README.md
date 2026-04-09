@@ -1,4 +1,5 @@
-# Proyecto-agricultura
-Integrantes:
-Emily gallardo
-joshua santeliz
+# Análisis Descriptivo de los Factores Determinantes en los Cultivos
+# Planteamiento del Problema
+En el mundo agrícola hay muchos temas por tratar, desde la salud nutricional hasta la gastronomía industrial, siendo temas de vital importancia para la vida humana. En este estudio analizaremos específicamente a la agricultura de la India en el ámbito del cultivo, resaltando que un manejo eficiente no solo garantiza cosechas óptimas, sino que genera seguridad alimentaria y eleva la calidad de vida de las personas.
+Los cultivos son influenciados por factores como el clima, los ciclos agrícolas, fertilizantes y pesticida, estos factores son importantes ya que a las empresas les interesas esas influencias para mejorar su gestión de inversión, bajando la incertidumbre al describir estas influencias.
+Por lo antes mencionado surgen problemas por ejemplo en la parte del clima como fenómenos naturales, problemas de contaminación que podría afectar ya sea al clima o a los mismos cultivos, estos problemas se resuelven luego de modelar esta investigación donde podremos comprender mejor la situación y se recomendará posibles decisiones a tomar. 
