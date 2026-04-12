@@ -2,11 +2,25 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import plotly.express as px
+from PIL import Image
 
-st.set_page_config(page_title="Proyecto Cultivos", page_icon="🌱", layout="wide")
+st.set_page_config(page_title="Proyecto Cultivos", page_icon="logo solo cultivo science sin fondo.png",layout="wide")
 
-st.markdown("<h1 style='text-align: center; color: #000000;'>Dashboard de Análisis de los Factores Determinantes en Ciclos Agrícola </h1>", unsafe_allow_html=True)
+logo = Image.open("logo cultivo science sin fondo.png") 
 
+st.sidebar.image(logo, use_container_width=True)
+
+col1, col2, col3 = st.columns([0.5, 3.5, 0.5])
+
+with col1:
+    st.image("logo cultivo science sin fondo.png", width=150)
+
+with col2:
+   st.markdown("""
+    <h1 style='text-align: center; color: #000000; font-size: 45px; font-family: Arial Black;'>
+        Análisis de los Factores Determinantes en Ciclos Agrícola
+    </h1>
+    """, unsafe_allow_html=True)
 st.divider()
 
 opcion = st.sidebar.selectbox(
@@ -60,11 +74,11 @@ if opcion == "":
     .bienvenida {
         font-family: 'Arial black';
         color: #000000; /* Azul Pastel */
-        font-size: 14px;
+        font-size: 12px;
         text-align: center;
         font-weight: bold;
-        padding: 18px;
-        border-radius: 8px;
+        padding: 15px;
+        border-radius: 5px;
         background-color: #91be8c; /* Fondo muy suave */
     }
     </style>
@@ -72,11 +86,73 @@ if opcion == "":
         Bienvenido. Por favor, selecciona una categoría en el menú lateral para comenzar.
     </p>
     """, unsafe_allow_html=True)
-    st.write("Bienvenido. Por favor, selecciona una categoría en el menú de lateral para comenzar.")
+    col1, col2, col3, col4 = st.columns([3, 2, 2, 1])
+    with col1:
+        st.markdown("""
+    <h1 style='text-align: center; color: #444444; font-size: 15px; font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;'>
+        Influencia de los Factores Determinantes en Ciclos Agrícolas
+    </h1>
+    """, unsafe_allow_html=True)
+        st.markdown("""
+<style>
+    .metric-card {
+        background-color: #FFFFFF; /* Fondo blanco */
+        border: 2px solid #E0E0E0; /* Borde gris suave */
+        padding: 20px;
+        border-radius: 15px; /* Esquinas redondeadas */
+        text-align: center;
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.05); /* Sombra sutil */
+        margin-bottom: 10px;
+    }
+    .metric-label {
+        color: #555555;
+        font-size: 15px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    .metric-value {
+        color: #AEC6CF; /* Color pastel (puedes cambiarlo por cada col) */
+        font-size: 15px
+        font-weight: bold;
+    }
+</style>
+""", unsafe_allow_html=True)
+        promedios = df[['fertilizer', 'pesticide', 'yield']].mean()
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            st.markdown(f"""
+         <div class="metric-card" style="border-color: #AEC6CF;">
+            <div class="metric-label">Promedio Fertilizante</div>
+            <div class="metric-value" style="color: #AEC6CF;">{promedios['fertilizer']:.2f} kg</div>
+        </div>
+    """, unsafe_allow_html=True)
+
+        with col2:
+            st.markdown(f"""
+        <div class="metric-card" style="border-color: #FFD1DC;">
+            <div class="metric-label">Promedio Pesticida</div>
+            <div class="metric-value" style="color: #FFD1DC;">{promedios['pesticide']:.2f} L</div>
+        </div>
+    """, unsafe_allow_html=True)
+
+        with col3:
+            st.markdown(f"""
+        <div class="metric-card" style="border-color: #B3E5BE;">
+            <div class="metric-label">Rendimiento Promedio</div>
+            <div class="metric-value" style="color: #B3E5BE;">{promedios['yield']:.2f} Ton</div>
+        </div>
+    """, unsafe_allow_html=True)
+   
+#diseño primera pagina
+    with col2:
+        pass
+    with col3:
+        pass
+    with col4:
+        pass
 
 elif opcion == "Calculos estadisticos":
     st.subheader("Calculos estadisticos de los Factores Determinantes en Ciclos Agrícolas")   
-    st.header("Resumen Estadístico")
     st.dataframe(df.describe(), use_container_width=True)
 
 elif opcion == "Frecuencia de Cultivos":

@@ -1,6 +1,6 @@
 [theme]
-primaryColor = "#6f887a"          # Color de botones, sliders, etc.
+primaryColor = "#96afa1"          # Color de botones, sliders, etc.
 backgroundColor = "#c0dccc"       # Color del fondo principal
-secondaryBackgroundColor = "#91be8c" # Color de la barra lateral y widgets
+secondaryBackgroundColor = "#abcaa8" # Color de la barra lateral y widgets
 textColor = "#000000"             # Color del texto
 font = "sans serif"               # Opciones: "sans serif", "serif" o "monospace"
