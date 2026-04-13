@@ -3,8 +3,20 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import plotly.express as px
 
-
 st.set_page_config(page_title="Proyecto Cultivos", page_icon="logo solo.svg")
+
+colA, colB, colC = st.columns([0.2, 3, 0.2])
+with colA:
+    st.image("logo solo.svg", width=150)
+with colB:
+   st.markdown("""
+    <h1 style='text-align: center; color: #000000; font-size: 30px; font-family: Arial Black;'>
+        Análisis de los Factores Determinantes en Ciclos Agrícola
+    </h1>
+    """, unsafe_allow_html=True)
+
+
+
 
 df = pd.read_csv("agricultura.csv")
 
