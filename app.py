@@ -176,17 +176,24 @@ st.plotly_chart(fig_obj1, use_container_width=True)
 #objetivo 2
 st.markdown("""
         <h1 style='text-align: center; color: #444444; font-size: 18px; font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;'>
-        Uso Promedio de Agroquímicos por Temporada
+        Distribución Promedio de Factores por Temporada
         </h1>
         """, unsafe_allow_html=True)
-promedios_agroquimicos = df_estudio.groupby('temporada')[['fertilizante', 'pesticida']].mean().reset_index()
-fig_obj2 = px.bar(promedios_agroquimicos, 
-                         x='temporada', y=['fertilizante', 'pesticida'],
-                         labels={'value':'Promedio Usado (Kg)', 'variable':'Tipo de Agroquímico', 'temporada':'Temporada'},
-                         barmode='group') 
-st.plotly_chart(fig_obj2, use_container_width=True)
 
 
+
+#objetivo 3
+st.markdown("""
+        <h1 style='text-align: center; color: #444444; font-size: 18px; font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;'>
+        Demanda Total de Agroquímicos por Temporada
+        </h1>
+        """, unsafe_allow_html=True)
+demanda_total = df_estudio.groupby('temporada')[['fertilizante', 'pesticida']].sum().reset_index()
+fig_obj3 = px.bar(demanda_total, 
+                  x='temporada', 
+                  y=['fertilizante', 'pesticida'],
+                  labels={'value':'Cantidad Total (Kg)', 'variable':'Tipo de Agroquímico', 'season':'Temporada'})
+st.plotly_chart(fig_obj3, use_container_width=True)
 
 
 
