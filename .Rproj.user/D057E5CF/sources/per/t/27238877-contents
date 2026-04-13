@@ -1,0 +1,441 @@
+# Analisis Exploratorio de los Datos
+
+# Carga de librerías y del dataset
+
+library(tidyverse)
+library(readr)
+library(tibble)
+
+Data_Agricultura <- read_csv("27. Agricultura.csv")
+View(Data_Agricultura)
+
+# inspección de la Estructura
+
+glimpse(Data_Agricultura) # Vista rapida
+
+
+
+# estadisticas rapidas de las variables nummericas 
+
+muestra %>% 
+  group_by(Annual_Rainfall) %>% 
+  summarise(Conteo = n(),
+            promedio = mean(Annual_Rainfall)) %>% 
+  arrange(desc(promedio))
+
+
+muestra %>% 
+  group_by(Pesticide) %>% 
+  summarise(Conteo = n(),
+            promedio = mean(Pesticide)) %>% 
+  arrange(desc(promedio))
+
+
+muestra %>% 
+  group_by(Fertilizer) %>% 
+  summarise(Conteo = n() ,
+            promedio = mean(Fertilizer)) %>% 
+  arrange(desc(promedio))
+
+
+muestra %>% 
+  group_by(Crop_Year) %>% 
+  summarise(Conteo = n() , conteo2 = n_distinct(Crop_Year))# este ultimo conteo no nos sirve porque no hay id 
+promedio = mean(Crop_Year) %>% 
+  arrange(desc(Conteo
+               
+               
+# verificacion de los conteos
+sum(estadisticas_de_años$Conteo)
+               
+# Limpieza de Datos (Data Cleaning)              
+               
+# Visualizar los valores presentes en cada columna, identificando la existencia de valores nulos.
+               
+summary(muestra)
+               
+colSums(is.na(Data_Agricultura))
+               
+colSums(is.na(muestra))
+               
+colSums(is.null(muestra)) # esto no porque son para listas no paar dataframe
+               
+# Visualización de las temporadas de cultivo en la variable season
+               
+estaciones <- muestra %>% 
+    distinct(Season)
+view(estaciones)
+               
+# Presentaba 3 estaciones redudantes la cual Summer se remplazo por Zaid (verano corto)
+  muestra %>% 
+    distinct(Season)
+               
+    # estaciones depuradas
+               
+estaciones_depuradas <- muestra %>% 
+        mutate(Season = recode(Season,
+                                        "Autumn" = "Kharif",
+                                        "Winter" = "Rabi",
+                                        "Summer" = "Zaid"))
+view(estaciones_depuradas)
+               
+ # Filas las cuales se les renombro 
+
+estaciones_eliminar <- muestra %>% 
+        filter(Season %in%c("Summer","Autumn","Winter"))
+               
+# Tipos de cultivos
+               
+tipos_cultivos <- estaciones_depuradas %>% 
+      distinct(Crop)
+View(tipos_cultivos)
+               
+# Visulizacion de datos duplicados
+               
+# Filas repetidas exactamente no se encotraron aparicione.
+
+estaciones_depuradas[duplicated(estaciones_depuradas), ]
+               
+# Filas repetidas exactamente no se encotraron apariciones en el dataset general
+      Data_Agricultura[duplicated(Data_Agricultura), ]
+               
+# Filas repetidas exactamente no se encotraron apariciones en la muestra
+    
+  muestra[duplicated(muestra), ]
+  
+# Outliers: Detectar valores extremos o erróneos               
+
+  #El Método Visual (Diagrama de Caja o Boxplot)
+  # precipitacion
+  ggplot(estaciones_depuradas, 
+         aes(x = Season, 
+             y = Annual_Rainfall,
+             fill = Season)) +
+    geom_boxplot()
+  
+  # Cuadro resumen de Outliers
+  
+  # Función para identificar atípicos
+
+  resumen_atipicos_tabla <- function(df) {
+    # 1. Calculamos las métricas por columna
+    resumen <- lapply(names(Data_Agricultura), function(col_name) {
+      col_data <- Data_Agricultura[[col_name]]
+      total_n <- length(col_data)
+      
+      if (is.numeric(col_data)) {
+        q1 <- quantile(col_data, 0.25, na.rm = TRUE)
+        q3 <- quantile(col_data, 0.75, na.rm = TRUE)
+        iqr <- q3 - q1
+        n_out <- sum(col_data < (q1 - 1.5 * iqr) | col_data > (q3 + 1.5 * iqr), na.rm = TRUE)
+        tipo <- "Numérica"
+      } else {
+        counts <- table(col_data)
+        prop <- prop.table(counts)
+        n_out <- sum(counts[prop < 0.01]) # Categorías con menos del 1%
+        tipo <- "Categórica"
+      }
+      
+      # Creamos una fila por variable
+      data.frame(
+        Variable = col_name,
+        Tipo = tipo,
+        Cant_Atipicos = n_out,
+        Porcentaje = round((n_out / total_n) * 100, 2)
+      )
+    })
+    
+    # 2. Unimos todo en un solo dataframe
+    bind_rows(resumen)
+  }
+  
+
+
+  tabla_atipicos <- resumen_atipicos_tabla(Data_Agricultura)
+  
+
+  View(tabla_atipicos)
+  
+
+
+  
+  
+  # area
+  
+  ggplot(estaciones_depuradas, 
+         aes(x = Season, 
+             y = Area,
+             fill = Season)) +
+    geom_boxplot()
+  
+# La Regla del Rango Intercuartílico (IQR)
+ # Annual_Rainfall 
+  boxplot.stats(Data_Agricultura$Annual_Rainfall)$out
+  
+  # Area
+  boxplot.stats(Data_Agricultura$Area)$out
+  
+
+  
+# El Z-Score (Puntuación Z)  
+  # Annual_Rainfall
+  scale(Data_Agricultura$Crop)
+  
+  scale(Data_Agricultura$Annual_Rainfall)
+  
+  valore_negativos <- Data_Agricultura %>% 
+    filter(Annual_Rainfall<0) %>% 
+    select("Annual_Rainfall")
+    # Area
+  scale(Data_Agricultura$Annual_Rainfall)
+  
+  valore_negativos <- subset(Data_Agricultura , Area< 0) 
+    
+  #Análisis Univariante
+  # Crop
+  # Tabla estadistica 
+
+  # 1. Identificamos la moda global primero
+  moda_valor <- names(which.max(table(Data_Agricultura$Crop)))
+  
+  # 2. Generamos la tabla estadística completa
+  estadisticas_crop <- Data_Agricultura %>%
+    group_by(Crop) %>%
+    summarise(frecuencia_absoluta = n()) %>%
+    arrange(desc(frecuencia_absoluta)) %>% # Ordenamos para que la acumulada tenga sentido
+    mutate(
+      frecuencia_relativa = frecuencia_absoluta / sum(frecuencia_absoluta),
+      frecuencia_acumulada = cumsum(frecuencia_absoluta),
+      relativa_acumulada = cumsum(frecuencia_relativa),
+      porcentaje = paste0(round(frecuencia_relativa * 100, 2), "%"),
+      es_moda = if_else(Crop == moda_valor, "SÍ", "no")
+    )
+  
+  # 3. Visualizar el resultado final
+  View(estadisticas_crop)
+  
+  # Season
+  
+  estadisticas_season <- Data_Agricultura %>%
+    group_by(Season) %>%
+    summarise(frecuencia_absoluta = n()) %>%
+    arrange(desc(frecuencia_absoluta)) %>% # Ordenamos para que la acumulada tenga sentido
+    mutate(
+      frecuencia_relativa = frecuencia_absoluta / sum(frecuencia_absoluta),
+      frecuencia_acumulada = cumsum(frecuencia_absoluta),
+      relativa_acumulada = cumsum(frecuencia_relativa),
+      porcentaje = paste0(round(frecuencia_relativa * 100, 2), "%"),
+      es_moda = if_else(Season == moda_valor, "SÍ", "no")
+    )
+  
+  # 3. Visualizar el resultado final
+  View(estadisticas_season)
+  
+  # State
+  estadisticas_state <- Data_Agricultura %>%
+    group_by(State) %>%
+    summarise(frecuencia_absoluta = n()) %>%
+    arrange(desc(frecuencia_absoluta)) %>% # Ordenamos para que la acumulada tenga sentido
+    mutate(
+      frecuencia_relativa = frecuencia_absoluta / sum(frecuencia_absoluta),
+      frecuencia_acumulada = cumsum(frecuencia_absoluta),
+      relativa_acumulada = cumsum(frecuencia_relativa),
+      porcentaje = paste0(round(frecuencia_relativa * 100, 2), "%"),
+      es_moda = if_else(State == moda_valor, "SÍ", "no")
+    )
+  
+  # 3. Visualizar el resultado final
+  View(estadisticas_state)
+  
+  
+    # Crop_Year
+  estadisticas_crop <- Data_Agricultura %>% 
+    group_by(Crop_Year) %>% 
+    summarise(
+      Conteo = n() ,
+  promedio = mean(Crop_Year) 
+    mediana = median(Crop_Year)  
+    desviacion_std = sd(Crop_Year) 
+    ) %>% 
+    arrange(desc(Conteo))
+  view(estadisticas_crop)
+  
+  # Cálculo de estadísticas por año de cultivo
+  estadisticas_crop <- Data_Agricultura %>%
+    group_by(Crop_Year) %>%
+    summarise(
+      Conteo = n(),
+      promedio = mean(Crop_Year, na.rm = TRUE),
+      mediana = median(Crop_Year, na.rm = TRUE),
+      desviacion_std = sd(Crop_Year, na.rm = TRUE)
+    ) %>%
+    arrange(desc(Conteo))
+  
+
+  view(estadisticas_crop)
+  
+  # Area
+  
+  estadisticas_area <- Data_Agricultura %>%
+    group_by(Area) %>%
+    summarise(
+      Conteo = n(),
+      promedio = mean(Area, na.rm = TRUE),
+      mediana = median(Area, na.rm = TRUE),
+      desviacion_std = sd(Area, na.rm = TRUE)
+    ) %>%
+    arrange(desc(Conteo))
+  
+  
+  view(estadisticas_area)
+  
+# Produccion
+  estadisticas_produccion <- Data_Agricultura %>%
+    group_by(Production) %>%
+    summarise(
+      Conteo = n(),
+      promedio = mean(Production, na.rm = TRUE),
+      mediana = median(Production, na.rm = TRUE),
+      desviacion_std = sd(Production, na.rm = TRUE)
+    ) %>%
+    arrange(desc(Conteo))
+  
+  
+  view(estadisticas_produccion)
+  
+# Determinar los valores mas frecuentes mediante representaciones graficas.
+               
+  # con respecto a el Datassaet general
+  
+# histograma de frecuencias de la variable precipitacion en el dataset general 
+  
+ggplot(Data_Agricultura, aes(x = Annual_Rainfall)) +
+    geom_histogram(bins = 15, fill = "skyblue", color = "black") 
+               
+# histograma de frecuencias de la variable Fertilizante en el dataset general 
+
+ggplot(Data_Agricultura, aes(x = Fertilizer)) +
+  geom_histogram(bins = 15, fill = "skyblue", color = "black") 
+
+# histograma de frecuencias de la variable Pesticida en el dataset general 
+
+ggplot(Data_Agricultura, aes(x = Pesticide)) +
+  geom_histogram(bins = 15, fill = "skyblue", color = "black") 
+
+# histograma de frecuencias de la variable Area en el dataset general 
+
+ggplot(Data_Agricultura, aes(x = Area)) +
+  geom_histogram(bins = 15, fill = "skyblue", color = "black") 
+
+# Con respecto a la muestra:
+
+# histograma de frecuencias de la variable precipitacion en el muestra
+
+ggplot(muestra, aes(x = Annual_Rainfall)) +
+  geom_histogram(bins = 15, fill = "skyblue", color = "black") 
+
+# histograma de frecuencias de la variable Ferilizante en el muestra
+
+ggplot(muestra, aes(x = Fertilizer)) +
+  geom_histogram(bins = 15, fill = "skyblue", color = "black") 
+
+# histograma de frecuencias de la variable Pesticida en el muestra
+
+ggplot(muestra, aes(x = Pesticide)) +
+  geom_histogram(bins = 15, fill = "skyblue", color = "black") 
+
+# histograma de frecuencias de la variable Area en el muestra
+
+ggplot(muestra, aes(x = Area)) +
+  geom_histogram(bins = 15, fill = "skyblue", color = "black") 
+
+# con respecto a estaciones depuradas
+
+# histograma de frecuencias de la variable precipitacion en el estaciones depuradas
+
+ggplot(estaciones_depuradas, aes(x = Annual_Rainfall)) +
+  geom_histogram(bins = 15, fill = "skyblue", color = "black") 
+
+# histograma de frecuencias de la variable Ferilizante en el estaciones depuradas
+
+ggplot(estaciones_depuradas, aes(x = Fertilizer)) +
+  geom_histogram(bins = 15, fill = "skyblue", color = "black") 
+
+# histograma de frecuencias de la variable Pesticida en el estaciones depuradas
+
+ggplot(estaciones_depuradas, aes(x = Pesticide)) +
+  geom_histogram(bins = 15, fill = "skyblue", color = "black") 
+
+# histograma de frecuencias de la variable Area en el estaciones depuradas
+
+ggplot(estaciones_depuradas, aes(x = Area)) +
+  geom_histogram(bins = 15, fill = "skyblue", color = "black") 
+
+# Densidad
+
+# Densidad de la variable Precipitacion con respecto las temporadas en el dataset original
+
+ggplot(Data_Agricultura, 
+       aes(x = Annual_Rainfall, 
+           fill = Season )) +
+  geom_density(alpha = 0.5) +
+  labs(
+    title = "Densidad de precipitaciones por el dataset general", 
+    x = "Annual_Rainfall ", 
+    y = "Densidad")
+
+# Densidad de la variable Precipitacion con respecto a los cultivos en el dataset original
+
+ggplot(Data_Agricultura, 
+       aes(x = Annual_Rainfall, 
+           fill = Crop )) +
+  geom_density(alpha = 0.5) +
+  labs(
+    title = "Densidad de precipitaciones por el dataset general", 
+    x = "Annual_Rainfall ", 
+    y = "Densidad")
+
+# Densidad de la variable Precipitacion con respecto a los años en el dataset original
+
+ggplot(Data_Agricultura, 
+       aes(x = Annual_Rainfall, 
+           fill = as.factor(Crop_Year))) +
+  geom_density(alpha = 0.5) +
+  labs(
+    title = "Densidad de precipitaciones por el dataset general", 
+    x = "Annual_Rainfall ", 
+    y = "Densidad")
+
+# Densidad de la variable Precipitacion con respecto a el area en el dataset original
+
+# Creamos las clases basadas en el área
+Data_Agricultura$Area_Clase <- cut(Data_Agricultura$Area, 
+                     breaks = 3, 
+                     labels = c("Pequeña", "Mediana", "Grande"))
+
+# Graficamos la densidad de lluvia para cada tamaño de área
+ggplot(Data_Agricultura, aes(x = Annual_Rainfall, fill = Area_Clase)) +
+  geom_density(alpha = 0.4) +
+  labs(title = "Densidad de Lluvia por Tamaño de Área")
+
+# División por cuantiles (33%, 66%, 100%)
+Data_Agricultura$Area_Clase <- cut(Data_Agricultura$Area, 
+                     breaks = quantile(Data_Agricultura$Area, probs = seq(0, 1, 1/3)), 
+                     include.lowest = TRUE)
+
+# Graficamos la densidad de lluvia para cada tamaño de área
+ggplot(Data_Agricultura, aes(x = Annual_Rainfall, fill = Area_Clase)) +
+  geom_density(alpha = 0.4) +
+  labs(title = "Densidad de Lluvia por Tamaño de Área")
+
+# 
+
+
+
+# Corrección de Visualización de la concentración de los registros en el intervalo de tiempo seleccionado (2010-2020)
+               
+concentracion <- muestra %>% 
+        count(Annual_Rainfall , sort = TRUE)
+  view(concentracion)
+               # esta visualizacion es previo a la limpieza entonces hay que revisar luego .
+               
