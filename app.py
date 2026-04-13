@@ -126,3 +126,17 @@ alto_rendimiento = df_estudio[df_estudio['rendimiento'] >= df_estudio['rendimien
 lluvia_ideal = alto_rendimiento.groupby('temporada')['precipitacion_anual'].median()
 fig_c = px.histogram(alto_rendimiento, x='precipitacion_anual', color='temporada', barmode='overlay')
 st.plotly_chart(fig_c)
+
+
+#pregunta 4
+st.markdown("""
+        <h1 style='text-align: center; color: #444444; font-size: 18px; font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;'>
+        Correlación entre Precipitaciones y Agroquímicos
+        </h1>
+        """, unsafe_allow_html=True)
+vars_d = df_estudio[['precipitacion_anual', 'fertilizante', 'pesticida']]
+matriz_corr = vars_d.corr()
+fig_d = px.imshow(matriz_corr, text_auto=True, aspect="auto", color_continuous_scale='Blues')
+st.plotly_chart(fig_d)
+
+
