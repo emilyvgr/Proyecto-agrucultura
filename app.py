@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import plotly.express as px
 
 
-st.set_page_config(page_title="Proyecto Cultivos", page_icon="logo solo.svg", layout="wide")
+st.set_page_config(page_title="Proyecto Cultivos", page_icon="logo solo.svg")
 
 df = pd.read_csv("agricultura.csv")
 
@@ -60,22 +60,26 @@ df['temporada'] = df['temporada'].replace('Winter', 'Rabi')
 df['temporada'] = df['temporada'].replace('Autumn', 'Kharif')
 
 st.markdown("""
-        <h1 style='text-align: center; color: #444444; font-size: 18px; font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;'>
-        Tabla de Calculos estadisticos para los Factores Determinantes en Ciclos Agrícola
-        </h1>
-        """, unsafe_allow_html=True)   
-st.markdown("""
-        <style>
-        /* Aplicamos el diseño a los contenedores de tablas */
-        [data-testid="stDataFrame"] {
+    <style>
+    /* Estilo para los contenedores de datos y tablas */
+    [data-testid="stDataFrame"], .stPlotlyChart {
         background-color: #FFFFFF;
         border-radius: 20px;
-        padding: 20px;
+        padding: 10px;
         border: 2px solid #E0E0E0;
         box-shadow: 2px 2px 15px rgba(0,0,0,0.05);
-        }
-        </style>
-        """, unsafe_allow_html=True)
+        margin-bottom: 20px;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+
+#tabla de calculos basicos
+st.markdown("""
+        <h1 style='text-align: center; color: #444444; font-size: 18px; font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;'>
+        Tabla de Calculos Estadisticos para los Factores Determinantes en Ciclos Agrícola
+        </h1>
+        """, unsafe_allow_html=True)   
 st.dataframe(
         df.describe().style.format("{:.2f}"), 
         use_container_width=True )
@@ -112,3 +116,13 @@ fig_b = px.box(df_estudio, x='nivel_fertilizante', y='rendimiento', color='tempo
 st.plotly_chart(fig_b)
 
 
+#pregunta 3
+st.markdown("""
+        <h1 style='text-align: center; color: #444444; font-size: 18px; font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;'>
+        Distribución de Precipitaciones en Cultivos de Alto Rendimiento
+        </h1>
+        """, unsafe_allow_html=True)
+alto_rendimiento = df_estudio[df_estudio['rendimiento'] >= df_estudio['rendimiento'].quantile(0.75)]
+lluvia_ideal = alto_rendimiento.groupby('temporada')['precipitacion_anual'].median()
+fig_c = px.histogram(alto_rendimiento, x='precipitacion_anual', color='temporada', barmode='overlay')
+st.plotly_chart(fig_c)
