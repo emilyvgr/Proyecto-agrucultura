@@ -209,6 +209,16 @@ Son medidas que ayudan a ubicar los datos  fácilmente. Están constituidas prin
 
 Son medidas ubicadas en el centro de la distribución. Denominados promedios y se dividen en dos tipos los matemáticos y los no matemáticos. Enfocando este tema al estudio es de importancia ya que estas medidas nos permiten comprender las tendencias de equilibrio a esperar en los datos. Los autores principales que desarrollaron este tema fueron: Gauss, Karl Pearson y Cournot.  \
 
+**Media Aritmética**: Es la representación de los datos manteniendo un equilibrio en toda la serie de datos, esta definición es importantísima para la estadística ya que es un valor que agrupa un conjunto de datos, en el contexto de nuestro estudio es fundamental para responder a lo planteado. Carl Friedrich Gauss y Adrien-Marie Legendre desarrolladores de esta importante medida. 
+
+**Mediana**: Es el valor que ocupa la posición central de un conjunto de datos ordenado. Centrado en nuestro estudio es relevante ya que nos permite obtener un indicador más robusto a valores atípicos es decir una medida más representativa. Antoine Augustin Cournot y Francis Galton fueron pioneros en esta definición. 
+
+**Moda**: Es el valor que aparece con mayor frecuencia en el conjunto de datos. Orientado en el informe es de interés ya que nos dictara la mayor frecuencia de los datos, indicando que ese dato es importante ya que dirá una representación de lo común. Karl Pearson fue el principal desarrollador de la moda donde se basó en una idea de que siempre destacaba un dato ante los demás por ser el más común. 
+
+**Media Geométrica**: La media geométrica es igual a la raíz n-esima del producto de n valores positivos, es decir multiplica los valores a diferencia de la media aritmética, lo que es ideal cuando se desea saber el promedio del tanto por ciento o disminución de una cosa. Desde épocas de Pitágoras hasta las bases firmes de Irving Fisher esta medida ha llevado contribuciones a lo largo del tiempo. Llegando a ser una alternativa excelente cuando la media no es lo indicado. 
+
+**Media Armónica**:
+Se denota H y se obtiene como los recíprocos de una serie dada, luego se determina la media aritmética de dichos recíprocos, y se toma la inversa de dicha media como la media armónica. Situando este concepto en el análisis de la influencia a los ciclos agrícolas es válido ya que promedia cantidades de químicos aplicados en una hectárea en específico. Desde épocas de Archytas de Tarento hasta Isaac Newton y Gottfried Leibniz se desarrolló inicialmente este concepto, basándose un poco en la música y en la física. 
 
 \subsection{Definición n}
 
