@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.13)  15 APR 2026 11:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.13)  15 APR 2026 12:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -898,7 +898,7 @@ Package hyperref Info: Link coloring ON on input line 74.
 \@outlinefile=\write3
 \openout3 = `informe.out'.
 
-<Latex/Classes/Escudos/ucvlogo.jpg, id=131, 676.02562pt x 668.4975pt>
+<Latex/Classes/Escudos/ucvlogo.jpg, id=135, 676.02562pt x 668.4975pt>
 File: Latex/Classes/Escudos/ucvlogo.jpg Graphic file (type jpg)
 <use Latex/Classes/Escudos/ucvlogo.jpg>
 Package pdftex.def Info: Latex/Classes/Escudos/ucvlogo.jpg  used on input line 
@@ -909,7 +909,7 @@ Overfull \hbox (0.96022pt too wide) in paragraph at lines 76--76
  [] 
  []
 
-<Latex/Classes/Escudos/faces.png, id=132, 346.29375pt x 200.75pt>
+<Latex/Classes/Escudos/faces.png, id=136, 346.29375pt x 200.75pt>
 File: Latex/Classes/Escudos/faces.png Graphic file (type png)
 <use Latex/Classes/Escudos/faces.png>
 Package pdftex.def Info: Latex/Classes/Escudos/faces.png  used on input line 76
@@ -966,7 +966,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.I}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.30 ...lusiones y Recomendaciones}{13}{chapter.5}
+l.31 ...lusiones y Recomendaciones}{14}{chapter.5}
                                                   % [1
 
 
@@ -1073,118 +1073,125 @@ Underfull \hbox (badness 10000) in paragraph at lines 381--387
 LaTeX Info: Redefining \. on input line 407.
 LaTeX Info: Redefining \% on input line 407.
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 427--428
+Underfull \hbox (badness 10000) in paragraph at lines 427--433
 
  []
 
-LaTeX Info: Redefining \. on input line 429.
-LaTeX Info: Redefining \% on input line 429.
+LaTeX Info: Redefining \. on input line 463.
+LaTeX Info: Redefining \% on input line 463.
 [9]
-Cap\'{\i }tulo 3.
-
-Underfull \hbox (badness 10000) in paragraph at lines 437--438
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 441--442
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 445--446
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 449--450
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 453--454
-
- []
-
-[10
-
-]
-LaTeX Info: Redefining \. on input line 455.
-LaTeX Info: Redefining \% on input line 455.
-[11]
-Cap\'{\i }tulo 4.
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 4
-57.
-(C:\Users\EQUIPO\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
-File: omscmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 457.
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 460.
-
-Underfull \hbox (badness 10000) in paragraph at lines 464--465
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 468--469
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 472--473
-
- []
-
-[12
-
-]
-Cap\'{\i }tulo 5.
-
-Underfull \hbox (badness 10000) in paragraph at lines 476--477
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 478--479
 
  []
 
+LaTeX Info: Redefining \. on input line 480.
+LaTeX Info: Redefining \% on input line 480.
+[10]
+Cap\'{\i }tulo 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 480--481
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 482--483
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 484--485
+Underfull \hbox (badness 10000) in paragraph at lines 488--489
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 486--487
+Underfull \hbox (badness 10000) in paragraph at lines 492--493
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 496--497
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 500--501
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 504--505
+
+ []
+
+[11
+
+]
+LaTeX Info: Redefining \. on input line 506.
+LaTeX Info: Redefining \% on input line 506.
+[12]
+Cap\'{\i }tulo 4.
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 5
+08.
+(C:\Users\EQUIPO\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
+File: omscmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 508.
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 511.
+
+Underfull \hbox (badness 10000) in paragraph at lines 515--516
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 519--520
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 523--524
 
  []
 
 [13
 
 ]
-Ap\'{e}ndice A.
+Cap\'{\i }tulo 5.
+
+Underfull \hbox (badness 10000) in paragraph at lines 527--528
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 529--530
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 531--532
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 533--534
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 535--536
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 537--538
+
+ []
+
 [14
 
 ]
-Ap\'{e}ndice B.
+Ap\'{e}ndice A.
 [15
+
+]
+Ap\'{e}ndice B.
+[16
 
 ]
 Ap\'{e}ndice C.
 No file informe.bbl.
-[16
+[17
 
 ] (informe.aux
 LaTeX Info: Redefining \. on input line 9.
@@ -1198,13 +1205,13 @@ L3 programming layer <2026-01-19>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `informe.out' has not changed.
-(rerunfilecheck)             Checksum: 31F22A72A2A6A5BE459E9F8B6FB2EF67;5442.
+(rerunfilecheck)             Checksum: B7D9B550AF12F0C037C8493D88A7756A;5663.
  ) 
 Here is how much of TeX's memory you used:
- 20885 strings out of 467867
- 350810 string characters out of 5417850
+ 20888 strings out of 467867
+ 350851 string characters out of 5417850
  834240 words of memory out of 5000000
- 49360 multiletter control sequences out of 15000+600000
+ 49361 multiletter control sequences out of 15000+600000
  636864 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  105i,12n,107p,435b,816s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1219,9 +1226,9 @@ pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/
 EQUIPO/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
 <C:/Users/EQUIPO/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
 mti10.pfb>
-Output written on informe.pdf (20 pages, 454174 bytes).
+Output written on informe.pdf (21 pages, 459314 bytes).
 PDF statistics:
- 320 PDF objects out of 1000 (max. 8388607)
- 60 named destinations out of 1000 (max. 500000)
- 267 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 330 PDF objects out of 1000 (max. 8388607)
+ 62 named destinations out of 1000 (max. 500000)
+ 275 words of extra memory for PDF output out of 10000 (max. 10000000)
 

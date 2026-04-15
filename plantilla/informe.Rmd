@@ -220,6 +220,25 @@ Son medidas ubicadas en el centro de la distribución. Denominados promedios y s
 **Media Armónica**:
 Se denota H y se obtiene como los recíprocos de una serie dada, luego se determina la media aritmética de dichos recíprocos, y se toma la inversa de dicha media como la media armónica. Situando este concepto en el análisis de la influencia a los ciclos agrícolas es válido ya que promedia cantidades de químicos aplicados en una hectárea en específico. Desde épocas de Archytas de Tarento hasta Isaac Newton y Gottfried Leibniz se desarrolló inicialmente este concepto, basándose un poco en la música y en la física. 
 
+\subsection{Medidas de dispersión: }
+
+Son medidas que buscan   saber la variabilidad con respecto los valores centrales, dividiéndose en absolutas y relativas. Considerándola en   la investigación   presenta una notaría importancia ya que la influencia depende mucho de la dispersión de los factores. Abraham de Moivre Carl Friedrich Gauss ,  Francis Galton , Karl Pearson Ronald A. Fisher desarrolladores de estas medidas. \
+
+**Rango**: Es el recorrido del conjunto de valores, expresado como la diferencia entre el Valor Máximo y el Valor Mínimo de la serie. Representando la mayor diferencia en   los datos, pertenece a las familias de las absolutas. Implementada al informe es crucial para entender la diferencia entre los datos. Es una de las medidas más antiguos ya que es intuitiva y fácil de entender por ello se ha aplicado desde casi siempre. Uno de los primeros fue Hiparco de Nicea. 
+
+**Rango intercuartílico**: Es igual a la diferencia entre el tercer cuartil y el primer cuartil. Lo que quiere decir que nos queda el 50 % central de los datos. siendo fundamental para la obtención de resultados robusto no propensos a valores atípicos. Desarrollado por Francis Galton un principal autor del concepto. 
+
+**Desviación Media**: Es el promedio de las distancias entre los valores de la serie y la medida 
+de tendencia central escogida. Interesante para esperar una dispersión entre los datos a estudiar. Roger Cotes estudio esta medida para que comenzara ha definirse. 
+
+**Varianza (Volatilidad)**:   Mide la dispersión de las precipitaciones respecto a la media, fundamental para medir el riesgo de precipitación en un año. Ronald A. Fisher formalmente introdujo el tema de la varianza. 
+
+**Desviación estándar**: Es la raíz cuadrada positiva de la varianza. Constituye el índice de dispersión más usado y confiable. Resaltando la dispersión entre las variables influyentes de nuestro estudio. Karl Pearson para muchos el más influyente en las medidas de dispersión 
+
+**Coeficiente de variación**: Pertenece a las medidas relativas, siendo así una medida que nos dice el porcentaje de deviación, existe varios coeficientes de variación, pero el más famoso es el de Pearson. Fundamental para comparar medias e indicadores de interés para el informe. Karl Pearson sin duda unos de los principales autores en las medidas relativas. 
+
+**Regla Empírica**: usado de forma gráfica para ver el comportamiento y desviaciones de los datos con respecto a la distribución. Aplicado en el estudio para la identificación de valores atípicos. Abraham de Moivre y Carl Friedrich Gauss.
+
 \subsection{Definición n}
 
 Descripción de la definición n\
